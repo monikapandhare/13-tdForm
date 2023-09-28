@@ -1,46 +1,69 @@
-<div class="container mt-4">
+<!-- <section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <form (ngSubmit)="onSignUp()" #signInForm="ngForm">
+         <ng-container ngModelGroup="userInfo">
+            <div class="form-group">
+              <label for="UserName">UserName*</label>
+              <input type="text" #UserName="ngModel" required ngModel name="UserName" id="userName" class="form-control">
+              <p class="alert alert-danger" *ngIf="UserName.touched && UserName.invalid">
+                UserName is Mandatory Feild !!!
+              </p>
+            </div>
+            <div class="form-group">
+              <label for="Email">Email*</label>
+              <input type="text" required #Email="ngModel" ngModel name="Email" id="email" class="form-control">
+              <p class="alert alert-danger" *ngIf="Email.touched && Email.invalid">
+                Email is Mandatory Field !!!
+              </p>
+            </div>
+         </ng-container>
+          <div class="form-group">
+            <label for="secretQuetion">Secret Quetion*</label>
+            <select  name="secretQuetion" id="secretQuetion" required [ngModel]="secretQuesDefault" class="form-control">
+              <option value="fvrtTeacher">Favourite Teacher</option>
+              <option value="fvrtSubject">Favourite Subject</option>
+            </select>
+            
+          </div>
+          <div class="form-group">
+            <label for="answer">Answer</label>
+            <textarea #answer="ngModel" name="answer" required ngModel id="answer" class="form-control" rows="4"></textarea>
+            <p class="alert alert-danger" *ngIf="answer.touched && answer.invalid">
+              Answer Is Mandatory Field
+            </p>
+          </div>
+          <div>
+            <div class="radio form-group" *ngFor="let mode of modeOfContact">
+              <input type="radio" name="contactMode" ngModel [value]="mode.moc" id="[mode.moc]" >
+              <label for="[mode.moc]">{{mode.moc}}</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subscribeToEmail">subscribeToEmail</label>
+            <input type="checkbox" ngModel name="subscribeToEmail" id="subscribeToEmail">
+          </div>
+  
+          <div class="text-right">
+            <button mat-raised-button color="accent" class="mx-4"
+            [disabled]="signInForm.invalid"> Sign In </button>
+
+            <button mat-raised-button type="button" color="primary"
+            (click)="onUpdateForm()"
+            >Edit Form</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-2">
-      <form (ngSubmit)="onSignUp()" #signInForm="ngForm">
-       <div ngModelGroup="userInfo">
-        <div class="form-group">
-          <label for="UserName">UserName*</label>
-          <input type="text" required ngModel name="UserName" id="userName" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="Email">Email*</label>
-          <input type="text" required ngModel name="Email" id="email" class="form-control">
-        </div>
-       </div>
-      <div class="form-group">
-        <label for="secretQuetion">Secret Quetion*</label>
-        <select name="secretQuetion" id="secretQuetion" required [ngModel]="secretQuesDefault" class="form-control">
-          <option value="fvrtTeacher">Favourite Teacher</option>
-          <option value="fvrtSubject">Favourite Subject</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="answer">Answer</label>
-        <textarea name="answer" required ngModel id="answer" class="form-control" rows="4"></textarea>
-      </div>
-      <div>
-        <div class="radio form-group" *ngFor="let mode of modeOfContact">
-         
-          <input type="radio" name="contactMode" ngModel [value]="mode.moc" id="[mode.moc]" >
-          <label for="[mode.moc]">{{mode.moc}}</label>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="subscribeToEmail">subscribeToEmail</label>
-        <input type="checkbox" ngModel name="subscribeToEmail" id="subscribeToEmail">
-      </div>
-
-      <div class="text-right">
-        <button mat-raised-button color="accent" class="mt-4"
-        [disabled]="signInForm.invalid"> Sign In </button>
-      </div>
-      </form>
-      
+      <app-td-form></app-td-form>
     </div>
   </div>
 </div>

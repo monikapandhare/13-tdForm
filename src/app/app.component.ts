@@ -20,6 +20,17 @@ export class AppComponent {
       id:124
     }
   ]
+
+  obj={
+    "userInfo": {
+        "UserName": "monika",
+        "Email": "monikapandhare71@gmail.com"
+    },
+    "secretQuetion": "fvrtTeacher",
+    "answer": "Rich Dad Poor Dad",
+    "subscribeToEmail": true,
+    "contactMode": "by email"
+}
   // onSignUp(signInForm:NgForm){
   //   if(signInForm.valid){
   //     console.log(signInForm.value);
@@ -35,6 +46,10 @@ export class AppComponent {
       this.signInForm.reset()
       
     }
+  }
+
+  onUpdateForm(){
+    this.signInForm.form.patchValue(this.obj)
   }
 }
 

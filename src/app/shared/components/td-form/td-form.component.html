@@ -1,0 +1,35 @@
+<form (ngSubmit)="onSubmitForm()" #submitForm="ngForm">
+    <div class="form-group">
+        <label for="username">UserName</label>
+        <input required 
+        pattern="[a-zA-Z]+"
+        ngModel type="text" name="username" id="username" class="form-control"> 
+        <ng-container *ngIf="submitForm.controls['username'].invalid && submitForm.controls['username'].touched">
+            <p class="alert alert-danger" *ngIf="submitForm.controls['username'].hasError('required')">
+                Username is Mandatory Field !!!
+            </p>
+            <p class="alert alert-danger" *ngIf="submitForm.controls['username'].hasError('pattern')">
+               plz Enter Valid Username !!
+            </p>
+        </ng-container>
+    </div>  
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input required 
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+        ngModel type="email"
+         name="email" id="email" class="form-control"> 
+         <ng-container *ngIf="submitForm.controls['email'].invalid && submitForm.controls['email'].touched">
+            <p class="alert alert-danger" *ngIf="submitForm.controls['email'].hasError('required')">
+                Email is Mandatory Field !!!
+            </p>
+            <p class="alert alert-danger" *ngIf="submitForm.controls['email'].hasError('pattern')">
+               plz Enter Valid Email !!
+            </p>
+        </ng-container>
+    </div> 
+  
+    <div class="text-right">
+        <button mat-raised-button color="accent">Submit</button>
+    </div>                                                                    
+</form>
